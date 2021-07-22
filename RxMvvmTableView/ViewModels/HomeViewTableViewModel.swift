@@ -8,8 +8,22 @@
 import Foundation
 
 struct HomeViewTableViewModel {
-    var name: String = ""
-    var username: String = ""
-    var email: String = ""
-    var website: String = ""
+    var name: String
+    var username: String
+    var email: String
+    var website: String
+
+    init(_ item: User) {
+        self.name = item.name
+        self.username = item.username
+        self.email = item.email
+        self.website = item.website
+    }
+
+    init(name: String, username: String, email: String, website: String) {
+        self.name = name
+        self.username = username
+        self.email = email
+        self.website = website
+    }
 }

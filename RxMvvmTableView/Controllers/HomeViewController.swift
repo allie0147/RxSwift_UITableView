@@ -12,13 +12,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var userTableView: UITableView!
 
     let viewModel: HomeViewModel
-    let tableViewModel: HomeViewTableViewModel
 
     let disposeBag: DisposeBag = DisposeBag()
 
     required init?(coder: NSCoder) {
         viewModel = HomeViewModel()
-        tableViewModel = HomeViewTableViewModel()
         super.init(coder: coder)
     }
 
@@ -29,19 +27,22 @@ class HomeViewController: UIViewController {
                                forCellReuseIdentifier: HomeViewTableViewCell.identifier)
 
         viewModel.users
-            .asDriver(onErrorJustReturn: [User(id: 0,
-                                               name: "Demo",
-                                               username: "DemoName",
-                                               email: "demo@gmail.com",
-                                               phone: "000-0000-0000",
-                                               website: "www.demo.com")])
+            .asDriver(onErrorJustReturn: [HomeViewTableViewModel(name: "",
+                                                                 username: "",
+                                                                 email: "",
+                                                                 website: "")]
+            )
             .drive(userTableView.rx.items(
-            cellIdentifier: HomeViewTableViewCell.identifier, cellType: HomeViewTableViewCell.self
+            cellIdentifier: HomeViewTableViewCell.identifier,
+            cellType: HomeViewTableViewCell.self
         )) { index, item, cell in
-            cell.lbName.text = item.name
-            cell.lbUsername.text = item.username
-            cell.lbEmail.text = item.email
-            cell.lbWebsite.text = item.website
+            cell.viewModel.onNext(item)
+//            cell.bind(to:
+//                HomeViewTableViewModel(name: item.name,
+//                                       username: item.username,
+//                                       email: item.email,
+//                                       website: item.website)
+//            )
         }.disposed(by: disposeBag)
 
         userTableView.rx.itemSelected
