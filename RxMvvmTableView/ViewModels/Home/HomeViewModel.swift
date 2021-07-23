@@ -15,13 +15,16 @@ class HomeViewModel {
     init() {
         disposebag = DisposeBag()
         users = BehaviorRelay<[HomeViewTableViewModel]>(value: [])
-
+        // API call
         fetchUsers()
     }
 
+    /**
+     # [GET] User Data #
+     */
     func fetchUsers() {
         APIService.shared.fetchUsers()
-            .map { $0.map { HomeViewTableViewModel($0) } }
+            .map { $0.map { HomeViewTableViewModel($0) } } // - convert User to HomeViewTableViewModel
             .debug()
             .bind(to: self.users)
             .disposed(by: disposebag)

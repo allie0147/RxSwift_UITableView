@@ -24,16 +24,8 @@ class HomeViewTableViewCell: UITableViewCell {
         viewModel = data.asObserver()
 
         super.init(coder: coder)
-
-        data.observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] data in
-            self?.lbUsername.text = data.username
-            self?.lbName.text = data.name
-            self?.lbEmail.text = data.email
-            self?.lbWebsite.text = data.website
-        })
-            .disposed(by: cellDisposeBag)
-
+        
+        self.bind(with: data)
     }
 
     override func awakeFromNib() {
@@ -44,10 +36,22 @@ class HomeViewTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    func bind(to viewModel: HomeViewTableViewModel) {
-        lbUsername.text = viewModel.username
-        lbName.text = viewModel.name
-        lbEmail.text = viewModel.email
-        lbWebsite.text = viewModel.website
+    /**
+     - bind cellViewModel
+     
+     - parameters:
+        - data: PublishSubject<HomeViewTableViewModel>
+     - Returns: void
+     - authors: 김도희
+     */
+    func bind(with data: PublishSubject<HomeViewTableViewModel>) {
+        data.observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] data in
+            self?.lbUsername.text = data.username
+            self?.lbName.text = data.name
+            self?.lbEmail.text = data.email
+            self?.lbWebsite.text = data.website
+        })
+            .disposed(by: cellDisposeBag)
     }
 }

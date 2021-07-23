@@ -76,6 +76,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B5CFC55326AAA92000E96D0A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B5D12EE126A4259200A1C9D6 /* HomeViewModel.swift */,
+				B5D12EE526A4263500A1C9D6 /* HomeViewTableViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		B5D12EB626A41F4200A1C9D6 = {
 			isa = PBXGroup;
 			children = (
@@ -122,8 +131,7 @@
 		B5D12EDF26A4257400A1C9D6 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				B5D12EE126A4259200A1C9D6 /* HomeViewModel.swift */,
-				B5D12EE526A4263500A1C9D6 /* HomeViewTableViewModel.swift */,
+				B5CFC55326AAA92000E96D0A /* Home */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
