@@ -11,7 +11,8 @@ public enum RequestType: String {
 }
 
 enum APIRequest {
-    case fetchUser
+    case fetchUsers
+    case fetchUserPosts(id: Int)
 }
 
 extension APIRequest {
@@ -24,15 +25,15 @@ extension APIRequest {
 
     var path: String {
         switch self {
-        case .fetchUser:
+        case .fetchUsers:
             return "/"
+        case let .fetchUserPosts(id):
+            return "\(id)/posts"
         }
     }
 
     var method: RequestType {
         switch self {
-        case .fetchUser:
-            return .GET
         default:
             return .GET
         }
@@ -64,7 +65,7 @@ extension APIRequest {
 
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
-        //headerㄸㅏ로 빼기
+        // -todo: headerㄸㅏ로 빼기
         request.addValue("application/json", forHTTPHeaderField: "Accept")
 
         return request

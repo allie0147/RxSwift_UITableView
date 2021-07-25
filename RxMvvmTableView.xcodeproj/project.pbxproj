@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		31EFD4906A868E32C09E72D1 /* Pods_RxMvvmTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7326582BC7C69A3C26A28E /* Pods_RxMvvmTableView.framework */; };
+		B503467F26AD7ACA00D4CE88 /* UserPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503467E26AD7ACA00D4CE88 /* UserPostsViewController.swift */; };
+		B503468126AD7CAA00D4CE88 /* UserPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503468026AD7CAA00D4CE88 /* UserPost.swift */; };
+		B503468426AD7D2900D4CE88 /* UserPostsViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503468226AD7D2900D4CE88 /* UserPostsViewTableViewCell.swift */; };
+		B503468526AD7D2900D4CE88 /* UserPostsViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B503468326AD7D2900D4CE88 /* UserPostsViewTableViewCell.xib */; };
+		B503468826AD7F0400D4CE88 /* UserPostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503468726AD7F0400D4CE88 /* UserPostsViewModel.swift */; };
+		B503468A26AD7F3B00D4CE88 /* UserPostsViewTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503468926AD7F3B00D4CE88 /* UserPostsViewTableViewModel.swift */; };
 		B5D12EC326A41F4200A1C9D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D12EC226A41F4200A1C9D6 /* AppDelegate.swift */; };
 		B5D12EC726A41F4200A1C9D6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D12EC626A41F4200A1C9D6 /* HomeViewController.swift */; };
 		B5D12ECA26A41F4200A1C9D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5D12EC826A41F4200A1C9D6 /* Main.storyboard */; };
@@ -28,6 +34,12 @@
 		07C1940D34510670CE440CB5 /* Pods-RxMvvmTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMvvmTableView.debug.xcconfig"; path = "Target Support Files/Pods-RxMvvmTableView/Pods-RxMvvmTableView.debug.xcconfig"; sourceTree = "<group>"; };
 		4D7326582BC7C69A3C26A28E /* Pods_RxMvvmTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxMvvmTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B89B81D2BF421930CF43540 /* Pods-RxMvvmTableView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMvvmTableView.release.xcconfig"; path = "Target Support Files/Pods-RxMvvmTableView/Pods-RxMvvmTableView.release.xcconfig"; sourceTree = "<group>"; };
+		B503467E26AD7ACA00D4CE88 /* UserPostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostsViewController.swift; sourceTree = "<group>"; };
+		B503468026AD7CAA00D4CE88 /* UserPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPost.swift; sourceTree = "<group>"; };
+		B503468226AD7D2900D4CE88 /* UserPostsViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostsViewTableViewCell.swift; sourceTree = "<group>"; };
+		B503468326AD7D2900D4CE88 /* UserPostsViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPostsViewTableViewCell.xib; sourceTree = "<group>"; };
+		B503468726AD7F0400D4CE88 /* UserPostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostsViewModel.swift; sourceTree = "<group>"; };
+		B503468926AD7F3B00D4CE88 /* UserPostsViewTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostsViewTableViewModel.swift; sourceTree = "<group>"; };
 		B5D12EBF26A41F4200A1C9D6 /* RxMvvmTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxMvvmTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D12EC226A41F4200A1C9D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5D12EC626A41F4200A1C9D6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +86,15 @@
 				8B89B81D2BF421930CF43540 /* Pods-RxMvvmTableView.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		B503468626AD7EF000D4CE88 /* UserPosts */ = {
+			isa = PBXGroup;
+			children = (
+				B503468726AD7F0400D4CE88 /* UserPostsViewModel.swift */,
+				B503468926AD7F3B00D4CE88 /* UserPostsViewTableViewModel.swift */,
+			);
+			path = UserPosts;
 			sourceTree = "<group>";
 		};
 		B5CFC55326AAA92000E96D0A /* Home */ = {
@@ -124,6 +145,8 @@
 			children = (
 				B5D12EDB26A4236900A1C9D6 /* HomeViewTableViewCell.swift */,
 				B5D12EDC26A4236900A1C9D6 /* HomeViewTableViewCell.xib */,
+				B503468226AD7D2900D4CE88 /* UserPostsViewTableViewCell.swift */,
+				B503468326AD7D2900D4CE88 /* UserPostsViewTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -132,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				B5CFC55326AAA92000E96D0A /* Home */,
+				B503468626AD7EF000D4CE88 /* UserPosts */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -140,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				B5D12EC626A41F4200A1C9D6 /* HomeViewController.swift */,
+				B503467E26AD7ACA00D4CE88 /* UserPostsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -166,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				B5D12EE726A4296D00A1C9D6 /* User.swift */,
+				B503468026AD7CAA00D4CE88 /* UserPost.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -245,6 +271,7 @@
 				B5D12EDE26A4236900A1C9D6 /* HomeViewTableViewCell.xib in Resources */,
 				B5D12ECC26A41F4300A1C9D6 /* Assets.xcassets in Resources */,
 				B5D12ECA26A41F4200A1C9D6 /* Main.storyboard in Resources */,
+				B503468526AD7D2900D4CE88 /* UserPostsViewTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,15 +325,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5D12EF026A459FF00A1C9D6 /* APIServiceProtocol.swift in Sources */,
+				B503468426AD7D2900D4CE88 /* UserPostsViewTableViewCell.swift in Sources */,
+				B503468A26AD7F3B00D4CE88 /* UserPostsViewTableViewModel.swift in Sources */,
 				B5D12EC726A41F4200A1C9D6 /* HomeViewController.swift in Sources */,
+				B503468126AD7CAA00D4CE88 /* UserPost.swift in Sources */,
 				B5D12EE626A4263500A1C9D6 /* HomeViewTableViewModel.swift in Sources */,
 				B5D12EE826A4296D00A1C9D6 /* User.swift in Sources */,
 				B5D12EEE26A459A700A1C9D6 /* APIService.swift in Sources */,
 				B5D12EC326A41F4200A1C9D6 /* AppDelegate.swift in Sources */,
 				B5D12EDD26A4236900A1C9D6 /* HomeViewTableViewCell.swift in Sources */,
+				B503468826AD7F0400D4CE88 /* UserPostsViewModel.swift in Sources */,
 				B5D12EE226A4259200A1C9D6 /* HomeViewModel.swift in Sources */,
 				B5D12EF226A4714700A1C9D6 /* APIRequest.swift in Sources */,
 				B5D12EEC26A4598A00A1C9D6 /* RequestObservable.swift in Sources */,
+				B503467F26AD7ACA00D4CE88 /* UserPostsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

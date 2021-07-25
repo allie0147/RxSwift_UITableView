@@ -12,8 +12,13 @@ final class APIService: APIServiceProtocol {
     lazy var requestObservable = RequestObservable()
 
     func fetchUsers() -> Observable<[User]> {
-        requestObservable.call(req: .fetchUser)
+        requestObservable.call(req: .fetchUsers)
     }
+
+    func fetchUserPosts(id: Int) -> Observable<[UserPost]> {
+        requestObservable.call(req: .fetchUserPosts(id: id))
+    }
+
 //    func getRecipes() throws -> Observable<[PostModel]> {
 //        var request = URLRequest(url:
 //            URL(string: "https://jsonplaceholder.typicode.com/posts")!)

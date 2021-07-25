@@ -12,4 +12,5 @@ protocol APIServiceProtocol {
     var requestObservable: RequestObservable { get set }
 
     func fetchUsers() -> Observable<[User]>
+    func fetchUserPosts(id: Int) -> Observable<[UserPost]>
 }
