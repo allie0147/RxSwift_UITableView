@@ -7,13 +7,17 @@
 
 import Foundation
 
+/**
+ # Users view model #
+ - author: 김도희
+ */
 class HomeViewModel {
     // RX
-    let disposebag: DisposeBag
+    let disposeBag: DisposeBag
     let users: BehaviorRelay<[HomeViewTableViewModel]>
 
     init() {
-        disposebag = DisposeBag()
+        disposeBag = DisposeBag()
         users = BehaviorRelay<[HomeViewTableViewModel]>(value: [])
         // API call
         fetchUsers()
@@ -22,11 +26,11 @@ class HomeViewModel {
     /**
      # [GET] User Data #
      */
-    func fetchUsers() {
+    private func fetchUsers() {
         APIService.shared.fetchUsers()
             .map { $0.map { HomeViewTableViewModel($0) } } // - convert User to HomeViewTableViewModel
             .debug()
             .bind(to: self.users)
-            .disposed(by: disposebag)
+            .disposed(by: disposeBag)
     }
 }

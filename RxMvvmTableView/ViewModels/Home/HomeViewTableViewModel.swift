@@ -7,6 +7,10 @@
 
 import Foundation
 
+/**
+ # HomeViewController TableView ViewModel #
+ - author: 김도희
+ */
 struct HomeViewTableViewModel {
     var name: String
     var username: String
