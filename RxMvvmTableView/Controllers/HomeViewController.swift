@@ -43,20 +43,32 @@ class HomeViewController: UIViewController {
             cell.viewModel.accept(item)
         }.disposed(by: disposeBag)
 
-        // tableview selected - UI
-        userTableView.rx.itemSelected
-            .subscribe(onNext: { [weak self] indexPath in
-            self?.userTableView.deselectRow(at: indexPath, animated: true)
-        }).disposed(by: disposeBag)
-
-        // tableview selected - push VC
-        userTableView.rx.modelSelected(HomeViewTableViewModel.self)
-            .subscribe(onNext: { model in
+        // tableview selected event
+        Observable.zip(userTableView.rx.itemSelected,
+                       userTableView.rx.modelSelected(HomeViewTableViewModel.self))
+            .bind { [weak self] (index, item) in
+            self?.userTableView.deselectRow(at: index, animated: true)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: UserPostsViewController.identifier) as! UserPostsViewController
-            self.navigationController?.pushViewController(vc, animated: true)
-        })
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
             .disposed(by: disposeBag)
+
+//        // tableview selected - UI
+//        userTableView.rx.itemSelected
+//            .subscribe(onNext: { [weak self] indexPath in
+//            self?.userTableView.deselectRow(at: indexPath, animated: true)
+//        }).disposed(by: disposeBag)
+//
+//        // tableview selected - push VC
+//        userTableView.rx.modelSelected(HomeViewTableViewModel.self)
+//            .subscribe(onNext: { model in
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: UserPostsViewController.identifier) as! UserPostsViewController
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        })
+//            .disposed(by: disposeBag)
+//    }
     }
 }
 
