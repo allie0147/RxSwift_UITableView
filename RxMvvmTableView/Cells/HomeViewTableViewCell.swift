@@ -20,12 +20,11 @@ class HomeViewTableViewCell: UITableViewCell {
     let cellDisposeBag = DisposeBag()
 
     required init?(coder: NSCoder) {
-        let data = PublishRelay<HomeViewTableViewModel>()
-        viewModel = data
+        viewModel = PublishRelay<HomeViewTableViewModel>()
 
         super.init(coder: coder)
 
-        self.bind(with: data)
+        self.bind(with: viewModel)
     }
 
     override func awakeFromNib() {
@@ -45,8 +44,8 @@ class HomeViewTableViewCell: UITableViewCell {
      - authors: 김도희
      */
     func bind(with data: PublishRelay<HomeViewTableViewModel>) {
-        data.observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] data in
+        data.asDriver(onErrorJustReturn: HomeViewTableViewModel())
+            .drive(onNext: { [weak self] data in
             self?.lbUsername.text = data.username
             self?.lbName.text = data.name
             self?.lbEmail.text = data.email

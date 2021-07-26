@@ -33,4 +33,8 @@ struct HomeViewTableViewModel {
         self.email = email
         self.website = website
     }
+
+    init() {
+        self.init(name: "", username: "", email: "", website: "")
+    }
 }
