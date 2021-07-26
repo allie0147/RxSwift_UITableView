@@ -12,12 +12,14 @@ import Foundation
  - author: 김도희
  */
 struct HomeViewTableViewModel {
+    var id: Int
     var name: String
     var username: String
     var email: String
     var website: String
 
     init(_ item: User) {
+        self.id = item.id
         self.name = item.name
         self.username = item.username
         self.email = item.email
@@ -25,6 +27,7 @@ struct HomeViewTableViewModel {
     }
 
     init(name: String, username: String, email: String, website: String) {
+        self.id = 0
         self.name = name
         self.username = username
         self.email = email

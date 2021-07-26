@@ -16,15 +16,15 @@ class HomeViewTableViewCell: UITableViewCell {
     @IBOutlet weak var lbEmail: UILabel!
     @IBOutlet weak var lbWebsite: UILabel!
 
-    var viewModel: AnyObserver<HomeViewTableViewModel>
+    var viewModel: PublishRelay<HomeViewTableViewModel>
     let cellDisposeBag = DisposeBag()
 
     required init?(coder: NSCoder) {
-        let data = PublishSubject<HomeViewTableViewModel>()
-        viewModel = data.asObserver()
+        let data = PublishRelay<HomeViewTableViewModel>()
+        viewModel = data
 
         super.init(coder: coder)
-        
+
         self.bind(with: data)
     }
 
@@ -44,7 +44,7 @@ class HomeViewTableViewCell: UITableViewCell {
      - Returns: void
      - authors: 김도희
      */
-    func bind(with data: PublishSubject<HomeViewTableViewModel>) {
+    func bind(with data: PublishRelay<HomeViewTableViewModel>) {
         data.observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] data in
             self?.lbUsername.text = data.username

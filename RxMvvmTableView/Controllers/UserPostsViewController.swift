@@ -9,18 +9,17 @@ import UIKit
 
 class UserPostsViewController: UIViewController {
 
+    static let identifier = "UserPostsViewController"
+
     @IBOutlet weak var userPostsTableView: UITableView!
+
+//    let viewModel: UserPostsViewModel
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // cell register
         userPostsTableView.register(UINib(nibName: UserPostsViewTableViewCell.identifier, bundle: nil),
                                     forCellReuseIdentifier: UserPostsViewTableViewCell.identifier)
-        
-        
-        
-        
 
     }
-
 }

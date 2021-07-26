@@ -40,17 +40,23 @@ class HomeViewController: UIViewController {
             cellIdentifier: HomeViewTableViewCell.identifier,
             cellType: HomeViewTableViewCell.self
         )) { index, item, cell in
-            cell.viewModel.onNext(item)
+            cell.viewModel.accept(item)
         }.disposed(by: disposeBag)
 
-        // tableview selected event
+        // tableview selected - UI
         userTableView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
             self?.userTableView.deselectRow(at: indexPath, animated: true)
-            // -TODO: change scene
         }).disposed(by: disposeBag)
-        
-        
+
+        // tableview selected - push VC
+        userTableView.rx.modelSelected(HomeViewTableViewModel.self)
+            .subscribe(onNext: { model in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: UserPostsViewController.identifier) as! UserPostsViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        })
+            .disposed(by: disposeBag)
     }
 }
 
