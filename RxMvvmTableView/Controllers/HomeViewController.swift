@@ -47,9 +47,12 @@ class HomeViewController: UIViewController {
         Observable.zip(userTableView.rx.itemSelected,
                        userTableView.rx.modelSelected(HomeViewTableViewModel.self))
             .bind { [weak self] (index, item) in
+            // deselect row
             self?.userTableView.deselectRow(at: index, animated: true)
+            // push VC
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: UserPostsViewController.identifier) as! UserPostsViewController
+            vc.viewModel = UserPostsViewModel(userId: item.id)
             self?.navigationController?.pushViewController(vc, animated: true)
         }
             .disposed(by: disposeBag)

@@ -13,7 +13,9 @@ class UserPostsViewController: UIViewController {
 
     @IBOutlet weak var userPostsTableView: UITableView!
 
-//    let viewModel: UserPostsViewModel
+    var viewModel: UserPostsViewModel! = nil
+
+    let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,5 +23,14 @@ class UserPostsViewController: UIViewController {
         userPostsTableView.register(UINib(nibName: UserPostsViewTableViewCell.identifier, bundle: nil),
                                     forCellReuseIdentifier: UserPostsViewTableViewCell.identifier)
 
+        // cell data binding
+        viewModel.posts
+            .asDriver(onErrorJustReturn: [])
+            .drive(userPostsTableView.rx.items(cellIdentifier: UserPostsViewTableViewCell.identifier,
+                                               cellType: UserPostsViewTableViewCell.self)
+        ) { index, item, cell in
+            cell.viewModel.accept(item)
+        }
+            .disposed(by: disposeBag)
     }
 }

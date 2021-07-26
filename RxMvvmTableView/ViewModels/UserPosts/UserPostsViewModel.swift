@@ -23,7 +23,10 @@ class UserPostsViewModel {
         // API call
         fetchUserPosts(userId)
     }
-
+    
+    /**
+     # [GET] User Posts #
+     */
     private func fetchUserPosts(_ userId: Int) {
         APIService.shared.fetchUserPosts(id: userId)
             .map { $0.map { UserPostsViewTableViewModel($0) } } // - convert UserPost to UserPostsViewTableViewModel

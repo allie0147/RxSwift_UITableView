@@ -11,7 +11,7 @@ import Foundation
  # UserPostsViewController TableView ViewModel #
  - author: 김도희
  */
-class UserPostsViewTableViewModel {
+struct UserPostsViewTableViewModel {
     var id: String
     var title: String
     var body: String
@@ -26,5 +26,9 @@ class UserPostsViewTableViewModel {
         self.id = id
         self.title = title
         self.body = body
+    }
+
+    init() {
+        self.init(id: "", title: "", body: "")
     }
 }

@@ -80,7 +80,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="userPostsTableView" destination="ztF-2W-5Qe" id="tYM-ee-5Qj"/>
+                        <outlet property="userPostsTableView" destination="ztF-2W-5Qe" id="DP9-B1-gto"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNv-Go-5xA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
