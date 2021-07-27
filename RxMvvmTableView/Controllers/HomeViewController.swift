@@ -22,9 +22,13 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Home"
         // cell register
         userTableView.register(UINib(nibName: HomeViewTableViewCell.identifier, bundle: nil),
                                forCellReuseIdentifier: HomeViewTableViewCell.identifier)
+        userTableView.estimatedRowHeight = 100
+        userTableView.rowHeight = 130
+
         makeTableView()
     }
 
@@ -32,10 +36,7 @@ class HomeViewController: UIViewController {
         // setting fetched data into tableview
         viewModel.users
             .asDriver(onErrorJustReturn:
-            [HomeViewTableViewModel(name: "",
-                                    username: "",
-                                    email: "",
-                                    website: "")])
+            [HomeViewTableViewModel()])
             .drive(userTableView.rx.items(
             cellIdentifier: HomeViewTableViewCell.identifier,
             cellType: HomeViewTableViewCell.self
@@ -52,7 +53,7 @@ class HomeViewController: UIViewController {
             // push VC
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: UserPostsViewController.identifier) as! UserPostsViewController
-            vc.viewModel = UserPostsViewModel(userId: item.id)
+            vc.viewModel = UserPostsViewModel(userId: item.id, userName: item.username)
             self?.navigationController?.pushViewController(vc, animated: true)
         }
             .disposed(by: disposeBag)

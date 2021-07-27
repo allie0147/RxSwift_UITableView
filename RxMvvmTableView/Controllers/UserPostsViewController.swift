@@ -19,9 +19,7 @@ class UserPostsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // cell register
-        userPostsTableView.register(UINib(nibName: UserPostsViewTableViewCell.identifier, bundle: nil),
-                                    forCellReuseIdentifier: UserPostsViewTableViewCell.identifier)
+        self.settingUI()
 
         // cell data binding
         viewModel.posts
@@ -32,5 +30,27 @@ class UserPostsViewController: UIViewController {
             cell.viewModel.accept(item)
         }
             .disposed(by: disposeBag)
+
+        Observable.zip(userPostsTableView.rx.itemSelected,
+                       userPostsTableView.rx.modelSelected(UserPostsViewTableViewModel.self)
+        ).bind { [weak self] in
+            self?.userPostsTableView.deselectRow(at: $0.0, animated: true)
+            // -TODO: push VC
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: PostCommentsViewController.identifier) as! PostCommentsViewController
+//            vc.viewModel = PostCommentsViewModel(postId: $0.1.id)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }.disposed(by: disposeBag)
+    }
+
+    func settingUI() {
+        // navigation bar
+        self.navigationItem.largeTitleDisplayMode = .never
+        self.navigationItem.title = viewModel.username
+        // table view
+        userPostsTableView.register(UINib(nibName: UserPostsViewTableViewCell.identifier, bundle: nil),
+                                    forCellReuseIdentifier: UserPostsViewTableViewCell.identifier)
+        userPostsTableView.estimatedRowHeight = 100
+        userPostsTableView.rowHeight = 110
     }
 }

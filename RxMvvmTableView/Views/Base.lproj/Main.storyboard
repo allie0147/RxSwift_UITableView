@@ -13,8 +13,8 @@
         <scene sceneID="r9H-EA-KKO">
             <objects>
                 <navigationController id="wHq-Mb-ckj" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qHd-Gj-7T0">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="qHd-Gj-7T0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8wE-kl-Lpz">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
@@ -48,7 +48,7 @@
                             <constraint firstAttribute="trailing" secondItem="8wE-kl-Lpz" secondAttribute="trailing" id="opw-oP-SQM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="7sF-pm-F0e"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="7sF-pm-F0e"/>
                     <connections>
                         <outlet property="userTableView" destination="8wE-kl-Lpz" id="89P-T6-CCa"/>
                     </connections>
@@ -57,17 +57,18 @@
             </objects>
             <point key="canvasLocation" x="745" y="309"/>
         </scene>
-        <!--UserPostsViewController-->
+        <!--User Posts View Controller-->
         <scene sceneID="oki-4R-4Vi">
             <objects>
-                <viewController storyboardIdentifier="UserPostsViewController" title="UserPostsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PwO-uw-4en" customClass="UserPostsViewController" customModule="RxMvvmTableView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserPostsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PwO-uw-4en" customClass="UserPostsViewController" customModule="RxMvvmTableView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cIA-pt-KAU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ztF-2W-5Qe">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ztF-2W-5Qe">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tkm-50-jRy"/>
@@ -79,6 +80,7 @@
                             <constraint firstItem="ztF-2W-5Qe" firstAttribute="leading" secondItem="tkm-50-jRy" secondAttribute="leading" id="jSR-jS-8Ef"/>
                         </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="userPostsTableView" destination="ztF-2W-5Qe" id="DP9-B1-gto"/>
                     </connections>
@@ -86,6 +88,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNv-Go-5xA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1561" y="309"/>
+        </scene>
+        <!--Post Comments View Controller-->
+        <scene sceneID="yYK-V4-t5G">
+            <objects>
+                <viewController storyboardIdentifier="PostCommentsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PGc-yo-3lm" customClass="PostCommentsViewController" customModule="RxMvvmTableView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Njt-NI-SWM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Ma5-s3-6OS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IQE-Wp-9FD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2404" y="309"/>
         </scene>
     </scenes>
     <resources>

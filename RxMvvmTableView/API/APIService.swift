@@ -18,6 +18,10 @@ final class APIService: APIServiceProtocol {
     func fetchUserPosts(id: Int) -> Observable<[UserPost]> {
         requestObservable.call(req: .fetchUserPosts(id: id))
     }
+    
+    func fetchPostComments(postId: Int) -> Observable<[UserPost]> {
+        requestObservable.call(req: .fetchPostComments(postId: postId))
+    }
 
 //    func getRecipes() throws -> Observable<[PostModel]> {
 //        var request = URLRequest(url:

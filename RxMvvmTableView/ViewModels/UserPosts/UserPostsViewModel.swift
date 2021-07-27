@@ -12,18 +12,20 @@ import Foundation
  - author: 김도희
  */
 class UserPostsViewModel {
-    
     // rx
     let disposeBag: DisposeBag
     let posts: BehaviorRelay<[UserPostsViewTableViewModel]>
 
-    init(userId: Int) {
+    let username: String
+
+    init(userId: Int, userName: String) {
         disposeBag = DisposeBag()
         posts = BehaviorRelay<[UserPostsViewTableViewModel]>(value: [])
+        self.username = userName
         // API call
         fetchUserPosts(userId)
     }
-    
+
     /**
      # [GET] User Posts #
      */

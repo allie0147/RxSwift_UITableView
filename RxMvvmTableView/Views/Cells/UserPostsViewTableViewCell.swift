@@ -20,20 +20,10 @@ class UserPostsViewTableViewCell: UITableViewCell {
     let disposeBag = DisposeBag()
 
     required init?(coder: NSCoder) {
-//        let data = PublishRelay<UserPostsViewTableViewModel>()
-//        viewModel = data
         self.viewModel = PublishRelay<UserPostsViewTableViewModel>()
         super.init(coder: coder)
 
         self.bind(with: viewModel)
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
 
     /**
@@ -47,9 +37,12 @@ class UserPostsViewTableViewCell: UITableViewCell {
     private func bind(with data: PublishRelay<UserPostsViewTableViewModel>) {
         data.asDriver(onErrorJustReturn: UserPostsViewTableViewModel())
             .drive(onNext: { [weak self] value in
-            self?.lbNumber.text = value.id
-            self?.lbTitle.text = value.title
+            self?.lbNumber.text = "No.\(value.id)"
+            let attrString = NSAttributedString(string: value.title,
+                                                attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .bold)])
+            self?.lbTitle.attributedText = attrString
             self?.lbBody.text = value.body
         }).disposed(by: disposeBag)
     }
+
 }

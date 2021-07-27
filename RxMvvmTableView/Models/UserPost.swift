@@ -7,11 +7,14 @@
 
 import Foundation
 
-class UserPost: Codable {
-
+/**
+ # Post Model #
+ - note: [/users/{id}/posts](/)
+ - author: 김도희
+ */
+struct UserPost: Codable {
     var userId: Int
     var id: Int
     var title: String
     var body: String
-
 }

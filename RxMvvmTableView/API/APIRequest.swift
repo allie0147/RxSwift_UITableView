@@ -13,11 +13,12 @@ public enum RequestType: String {
 enum APIRequest {
     case fetchUsers
     case fetchUserPosts(id: Int)
+    case fetchPostComments(postId: Int)
 }
 
 extension APIRequest {
     var baseURL: URL {
-        guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else {
+        guard let url = URL(string: "https://jsonplaceholder.typicode.com") else {
             fatalError("invalid URL")
         }
         return url
@@ -26,9 +27,11 @@ extension APIRequest {
     var path: String {
         switch self {
         case .fetchUsers:
-            return "/"
+            return "/users"
         case let .fetchUserPosts(id):
-            return "\(id)/posts"
+            return "/users/\(id)/posts"
+        case let .fetchPostComments(postId):
+            return "/posts/\(postId)/comments"
         }
     }
 

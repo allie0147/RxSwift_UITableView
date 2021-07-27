@@ -7,13 +7,16 @@
 
 import Foundation
 
+/**
+ # User Model #
+ - note: [/users/{id}](/)
+ - author: 김도희
+ */
 struct User: Codable {
-
     var id: Int
     var name: String
     var username: String
     var email: String
     var phone: String
-    var website: String 
-
+    var website: String
 }
