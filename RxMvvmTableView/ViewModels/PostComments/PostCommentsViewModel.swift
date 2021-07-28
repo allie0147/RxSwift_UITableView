@@ -10,17 +10,22 @@ import Foundation
 class PostCommentsViewModel {
 
     let disposeBag: DisposeBag
+    let comments: PublishRelay<[PostCommentsTableViewModel]>
 
-//    let comments: PublishRelay<[]>
+    let title: String
 
     init(postId: Int) {
         disposeBag = DisposeBag()
-
+        comments = PublishRelay<[PostCommentsTableViewModel]>()
+        self.title = "No. \(postId)"
+        fetchComments(postId)
     }
-    
+
     private func fetchComments(_ postId: Int) {
         APIService.shared.fetchPostComments(postId: postId)
-//            .map(<#T##transform: ([UserPost]) throws -> Result##([UserPost]) throws -> Result#>)
-//            .bind(to: <#T##[UserPost]...##[UserPost]#>)
+            .map { $0.map { PostCommentsTableViewModel($0) } }
+            .debug()
+            .bind(to: self.comments)
+            .disposed(by: disposeBag)
     }
 }

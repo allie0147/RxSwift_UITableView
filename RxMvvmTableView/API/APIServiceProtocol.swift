@@ -13,5 +13,5 @@ protocol APIServiceProtocol {
 
     func fetchUsers() -> Observable<[User]>
     func fetchUserPosts(id: Int) -> Observable<[UserPost]>
-    func fetchPostComments(postId: Int) -> Observable<[UserPost]>
+    func fetchPostComments(postId: Int) -> Observable<[Comment]>
 }
