@@ -35,10 +35,10 @@ class UserPostsViewController: UIViewController {
                        userPostsTableView.rx.modelSelected(UserPostsViewTableViewModel.self)
         ).bind { [weak self] in
             self?.userPostsTableView.deselectRow(at: $0.0, animated: true)
-            // -TODO: push VC
+            // push VC
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: PostCommentsViewController.identifier) as! PostCommentsViewController
-//            vc.viewModel = PostCommentsViewModel(postId: $0.1.id)
+            vc.viewModel = PostCommentsViewModel(postId: Int($0.1.id) ?? 0)
             self?.navigationController?.pushViewController(vc, animated: true)
         }.disposed(by: disposeBag)
     }

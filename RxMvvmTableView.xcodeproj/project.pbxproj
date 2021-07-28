@@ -14,6 +14,8 @@
 		B503468526AD7D2900D4CE88 /* UserPostsViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B503468326AD7D2900D4CE88 /* UserPostsViewTableViewCell.xib */; };
 		B503468826AD7F0400D4CE88 /* UserPostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503468726AD7F0400D4CE88 /* UserPostsViewModel.swift */; };
 		B503468A26AD7F3B00D4CE88 /* UserPostsViewTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503468926AD7F3B00D4CE88 /* UserPostsViewTableViewModel.swift */; };
+		B525855F26AFD0D400A0ADB1 /* PostCommentsTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B525855E26AFD0D400A0ADB1 /* PostCommentsTableViewModel.swift */; };
+		B525856126AFF4CA00A0ADB1 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B525856026AFF4CA00A0ADB1 /* CommentViewController.swift */; };
 		B530187F26AEA5630006B00C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B530187E26AEA5630006B00C /* Comment.swift */; };
 		B530188226AEA6A00006B00C /* PostCommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B530188126AEA6A00006B00C /* PostCommentsViewModel.swift */; };
 		B530188426AEA7720006B00C /* PostCommnetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B530188326AEA7720006B00C /* PostCommnetsViewController.swift */; };
@@ -43,6 +45,8 @@
 		B503468326AD7D2900D4CE88 /* UserPostsViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPostsViewTableViewCell.xib; sourceTree = "<group>"; };
 		B503468726AD7F0400D4CE88 /* UserPostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostsViewModel.swift; sourceTree = "<group>"; };
 		B503468926AD7F3B00D4CE88 /* UserPostsViewTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostsViewTableViewModel.swift; sourceTree = "<group>"; };
+		B525855E26AFD0D400A0ADB1 /* PostCommentsTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentsTableViewModel.swift; sourceTree = "<group>"; };
+		B525856026AFF4CA00A0ADB1 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		B530187E26AEA5630006B00C /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		B530188126AEA6A00006B00C /* PostCommentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentsViewModel.swift; sourceTree = "<group>"; };
 		B530188326AEA7720006B00C /* PostCommnetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommnetsViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				B530188126AEA6A00006B00C /* PostCommentsViewModel.swift */,
+				B525855E26AFD0D400A0ADB1 /* PostCommentsTableViewModel.swift */,
 			);
 			path = PostComments;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 				B5D12EC626A41F4200A1C9D6 /* HomeViewController.swift */,
 				B503467E26AD7ACA00D4CE88 /* UserPostsViewController.swift */,
 				B530188326AEA7720006B00C /* PostCommnetsViewController.swift */,
+				B525856026AFF4CA00A0ADB1 /* CommentViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -341,12 +347,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B525856126AFF4CA00A0ADB1 /* CommentViewController.swift in Sources */,
 				B5D12EF026A459FF00A1C9D6 /* APIServiceProtocol.swift in Sources */,
 				B503468426AD7D2900D4CE88 /* UserPostsViewTableViewCell.swift in Sources */,
 				B503468A26AD7F3B00D4CE88 /* UserPostsViewTableViewModel.swift in Sources */,
 				B5D12EC726A41F4200A1C9D6 /* HomeViewController.swift in Sources */,
 				B503468126AD7CAA00D4CE88 /* UserPost.swift in Sources */,
 				B5D12EE626A4263500A1C9D6 /* HomeViewTableViewModel.swift in Sources */,
+				B525855F26AFD0D400A0ADB1 /* PostCommentsTableViewModel.swift in Sources */,
 				B5D12EE826A4296D00A1C9D6 /* User.swift in Sources */,
 				B5D12EEE26A459A700A1C9D6 /* APIService.swift in Sources */,
 				B5D12EC326A41F4200A1C9D6 /* AppDelegate.swift in Sources */,

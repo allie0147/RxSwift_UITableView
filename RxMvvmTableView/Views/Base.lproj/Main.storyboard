@@ -96,14 +96,43 @@
                     <view key="view" contentMode="scaleToFill" id="Njt-NI-SWM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RuH-6z-cWt">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Ma5-s3-6OS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RuH-6z-cWt" firstAttribute="leading" secondItem="Ma5-s3-6OS" secondAttribute="leading" id="IVz-TM-P6Q"/>
+                            <constraint firstItem="Ma5-s3-6OS" firstAttribute="bottom" secondItem="RuH-6z-cWt" secondAttribute="bottom" id="RHi-lX-2XQ"/>
+                            <constraint firstItem="Ma5-s3-6OS" firstAttribute="trailing" secondItem="RuH-6z-cWt" secondAttribute="trailing" id="mD8-5n-q8V"/>
+                            <constraint firstItem="RuH-6z-cWt" firstAttribute="top" secondItem="Ma5-s3-6OS" secondAttribute="top" id="mmI-qi-DoA"/>
+                        </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="postCommentTableView" destination="RuH-6z-cWt" id="jgr-Q6-ltJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IQE-Wp-9FD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2404" y="309"/>
+        </scene>
+        <!--Comment View Controller-->
+        <scene sceneID="ZEa-JW-2rA">
+            <objects>
+                <viewController restorationIdentifier="CommentViewController" storyboardIdentifier="CommentViewController" id="CWc-pl-EHj" customClass="CommentViewController" customModule="RxMvvmTableView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="M2S-ka-Khe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="C5w-Br-vJf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wkd-Ax-uLN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2403" y="990"/>
         </scene>
     </scenes>
     <resources>
