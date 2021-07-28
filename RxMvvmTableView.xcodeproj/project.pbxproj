@@ -19,6 +19,11 @@
 		B530187F26AEA5630006B00C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B530187E26AEA5630006B00C /* Comment.swift */; };
 		B530188226AEA6A00006B00C /* PostCommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B530188126AEA6A00006B00C /* PostCommentsViewModel.swift */; };
 		B530188426AEA7720006B00C /* PostCommnetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B530188326AEA7720006B00C /* PostCommnetsViewController.swift */; };
+		B5A5774626B11F7600F5E312 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A5774526B11F7600F5E312 /* Constants.swift */; };
+		B5A5774926B1268300F5E312 /* PostCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A5774726B1268300F5E312 /* PostCommentTableViewCell.swift */; };
+		B5A5774A26B1268300F5E312 /* PostCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5A5774826B1268300F5E312 /* PostCommentTableViewCell.xib */; };
+		B5A5774C26B1330C00F5E312 /* PostCommentTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A5774B26B1330C00F5E312 /* PostCommentTableViewHeaderView.swift */; };
+		B5A5774E26B1331F00F5E312 /* PostCommentTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5A5774D26B1331F00F5E312 /* PostCommentTableViewHeaderView.xib */; };
 		B5D12EC326A41F4200A1C9D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D12EC226A41F4200A1C9D6 /* AppDelegate.swift */; };
 		B5D12EC726A41F4200A1C9D6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D12EC626A41F4200A1C9D6 /* HomeViewController.swift */; };
 		B5D12ECA26A41F4200A1C9D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5D12EC826A41F4200A1C9D6 /* Main.storyboard */; };
@@ -50,6 +55,11 @@
 		B530187E26AEA5630006B00C /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		B530188126AEA6A00006B00C /* PostCommentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentsViewModel.swift; sourceTree = "<group>"; };
 		B530188326AEA7720006B00C /* PostCommnetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommnetsViewController.swift; sourceTree = "<group>"; };
+		B5A5774526B11F7600F5E312 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B5A5774726B1268300F5E312 /* PostCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentTableViewCell.swift; sourceTree = "<group>"; };
+		B5A5774826B1268300F5E312 /* PostCommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCommentTableViewCell.xib; sourceTree = "<group>"; };
+		B5A5774B26B1330C00F5E312 /* PostCommentTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentTableViewHeaderView.swift; sourceTree = "<group>"; };
+		B5A5774D26B1331F00F5E312 /* PostCommentTableViewHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCommentTableViewHeaderView.xib; sourceTree = "<group>"; };
 		B5D12EBF26A41F4200A1C9D6 /* RxMvvmTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxMvvmTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D12EC226A41F4200A1C9D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5D12EC626A41F4200A1C9D6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +126,14 @@
 			path = PostComments;
 			sourceTree = "<group>";
 		};
+		B5A5774426B11F5500F5E312 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B5A5774526B11F7600F5E312 /* Constants.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		B5CFC55326AAA92000E96D0A /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +164,7 @@
 		B5D12EC126A41F4200A1C9D6 /* RxMvvmTableView */ = {
 			isa = PBXGroup;
 			children = (
+				B5A5774426B11F5500F5E312 /* Common */,
 				B5D12ED026A41F4300A1C9D6 /* Info.plist */,
 				B5D12ED626A4206800A1C9D6 /* RxMvvmTableView-Bridging-Header.h */,
 				B5D12EE426A425BC00A1C9D6 /* App */,
@@ -165,6 +184,10 @@
 				B5D12EDC26A4236900A1C9D6 /* HomeViewTableViewCell.xib */,
 				B503468226AD7D2900D4CE88 /* UserPostsViewTableViewCell.swift */,
 				B503468326AD7D2900D4CE88 /* UserPostsViewTableViewCell.xib */,
+				B5A5774726B1268300F5E312 /* PostCommentTableViewCell.swift */,
+				B5A5774826B1268300F5E312 /* PostCommentTableViewCell.xib */,
+				B5A5774B26B1330C00F5E312 /* PostCommentTableViewHeaderView.swift */,
+				B5A5774D26B1331F00F5E312 /* PostCommentTableViewHeaderView.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -194,8 +217,8 @@
 			isa = PBXGroup;
 			children = (
 				B5D12EDA26A4234F00A1C9D6 /* Cells */,
-				B5D12ECD26A41F4300A1C9D6 /* LaunchScreen.storyboard */,
 				B5D12EC826A41F4200A1C9D6 /* Main.storyboard */,
+				B5D12ECD26A41F4300A1C9D6 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -294,7 +317,9 @@
 				B5D12EDE26A4236900A1C9D6 /* HomeViewTableViewCell.xib in Resources */,
 				B5D12ECC26A41F4300A1C9D6 /* Assets.xcassets in Resources */,
 				B5D12ECA26A41F4200A1C9D6 /* Main.storyboard in Resources */,
+				B5A5774E26B1331F00F5E312 /* PostCommentTableViewHeaderView.xib in Resources */,
 				B503468526AD7D2900D4CE88 /* UserPostsViewTableViewCell.xib in Resources */,
+				B5A5774A26B1268300F5E312 /* PostCommentTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +383,9 @@
 				B5D12EE826A4296D00A1C9D6 /* User.swift in Sources */,
 				B5D12EEE26A459A700A1C9D6 /* APIService.swift in Sources */,
 				B5D12EC326A41F4200A1C9D6 /* AppDelegate.swift in Sources */,
+				B5A5774C26B1330C00F5E312 /* PostCommentTableViewHeaderView.swift in Sources */,
+				B5A5774926B1268300F5E312 /* PostCommentTableViewCell.swift in Sources */,
+				B5A5774626B11F7600F5E312 /* Constants.swift in Sources */,
 				B5D12EDD26A4236900A1C9D6 /* HomeViewTableViewCell.swift in Sources */,
 				B503468826AD7F0400D4CE88 /* UserPostsViewModel.swift in Sources */,
 				B5D12EE226A4259200A1C9D6 /* HomeViewModel.swift in Sources */,

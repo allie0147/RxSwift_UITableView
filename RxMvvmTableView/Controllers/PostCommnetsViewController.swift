@@ -22,8 +22,11 @@ class PostCommentsViewController: UIViewController {
                 height: 60
             ))
         // Icon
-        let image = UIImage(named: "plus")
-        button.setImage(image, for: .normal)
+//        let image = UIImage(systemName: "plus")
+//        button.setImage(image, for: .normal)
+        // title
+        button.setTitle("+", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 40, weight: .bold)
         // Colors
         button.backgroundColor = .systemPink
         button.tintColor = .white
@@ -44,15 +47,18 @@ class PostCommentsViewController: UIViewController {
         button.layer.cornerRadius = 30
         return button
     }()
+    
+    private lazy var tableHeaderView: PostCommentTableViewHeaderView = {
+        return PostCommentTableViewHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 300))
+    }()
 
     // MARK: -Rx
     var viewModel: PostCommentsViewModel! = nil
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         settingUI()
-
     }
 
     override func viewDidLayoutSubviews() {
@@ -63,23 +69,41 @@ class PostCommentsViewController: UIViewController {
             width: 60,
             height: 60
         )
-        print("makeCommentButton \(makeCommentButton)")
     }
-
 
     func settingUI() {
         // navigation item
         self.navigationItem.largeTitleDisplayMode = .never
         self.navigationItem.title = viewModel.title
-        
-        view.addSubview(makeCommentButton) 
 
+        view.addSubview(makeCommentButton)
+        // cell
+        postCommentTableView.register(UINib(nibName: PostCommentTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: PostCommentTableViewCell.identifier)
+        // header view
+        postCommentTableView.tableHeaderView = self.tableHeaderView
+
+        // FAB
         makeCommentButton.rx.tap
             .bind(onNext: { [weak self] in
             print("button tapped")
-            let storyboard = UIStoryboard(name: "main", bundle: nil)
+            let storyboard = UIStoryboard.getSB(name: .main)
             let vc = storyboard.instantiateViewController(withIdentifier: CommentViewController.identifier) as! CommentViewController
             self?.present(vc, animated: true)
+        })
+            .disposed(by: disposeBag)
+
+        // commetns in tableView
+        viewModel.comments.asDriver(onErrorJustReturn: [])
+            .drive(postCommentTableView.rx.items(
+            cellIdentifier: PostCommentTableViewCell.identifier,
+            cellType: PostCommentTableViewCell.self)
+        ) { index, item, cell in
+            cell.viewModel.accept(item)
+        }.disposed(by: disposeBag)
+
+        viewModel.post.asDriver(onErrorJustReturn: UserPost(userId: 0, id: 0, title: "", body: ""))
+            .drive(onNext: { [weak self] data in
+            self?.tableHeaderView.userPost.accept(data)
         })
             .disposed(by: disposeBag)
     }

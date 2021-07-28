@@ -10,13 +10,15 @@ public class RequestObservable {
     private lazy var jsonDecoder = JSONDecoder()
 
     func call<T: Codable>(req: APIRequest) -> Observable<T> {
-        let request = req.request(with: req)
-        return URLSession.shared.rx.data(request: request)
-            .subscribe(on: ConcurrentDispatchQueueScheduler.init(qos: .default))
-            .map {
-            try JSONDecoder().decode(T.self, from: $0)
+        Observable.just(req.request(with: req)).flatMap { request in
+            return URLSession.shared.rx.data(request: request)
+                .retry(3)
+                .subscribe(on: ConcurrentDispatchQueueScheduler.init(qos: .default))
+                .map {
+                try JSONDecoder().decode(T.self, from: $0)
+            }
+                .observe(on: MainScheduler.asyncInstance)
         }
-            .observe(on: MainScheduler.asyncInstance)
     }
 
 //    public init() {

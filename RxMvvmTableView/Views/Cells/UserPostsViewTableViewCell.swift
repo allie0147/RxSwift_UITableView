@@ -15,9 +15,9 @@ class UserPostsViewTableViewCell: UITableViewCell {
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbBody: UILabel!
 
-    var viewModel: PublishRelay<UserPostsViewTableViewModel>
+    let viewModel: PublishRelay<UserPostsViewTableViewModel>
 
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
 
     required init?(coder: NSCoder) {
         self.viewModel = PublishRelay<UserPostsViewTableViewModel>()
@@ -26,11 +26,16 @@ class UserPostsViewTableViewCell: UITableViewCell {
         self.bind(with: viewModel)
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
+
     /**
      - bind cellViewModel
      
      - parameters:
-        - data: PublishSubject<UserPostsViewTableViewModel>
+        - data: PublishRelay<UserPostsViewTableViewModel>
      - Returns: void
      - authors: 김도희
      */

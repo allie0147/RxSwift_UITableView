@@ -15,7 +15,7 @@ class UserPostsViewController: UIViewController {
 
     var viewModel: UserPostsViewModel! = nil
 
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +36,13 @@ class UserPostsViewController: UIViewController {
         ).bind { [weak self] in
             self?.userPostsTableView.deselectRow(at: $0.0, animated: true)
             // push VC
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard.getSB(name: .main)
             let vc = storyboard.instantiateViewController(withIdentifier: PostCommentsViewController.identifier) as! PostCommentsViewController
             vc.viewModel = PostCommentsViewModel(postId: Int($0.1.id) ?? 0)
             self?.navigationController?.pushViewController(vc, animated: true)
         }.disposed(by: disposeBag)
     }
-
+    
     func settingUI() {
         // navigation bar
         self.navigationItem.largeTitleDisplayMode = .never

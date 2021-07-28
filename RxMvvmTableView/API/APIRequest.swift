@@ -11,9 +11,10 @@ public enum RequestType: String {
 }
 
 enum APIRequest {
-    case fetchUsers
-    case fetchUserPosts(id: Int)
-    case fetchPostComments(postId: Int)
+    case fetchUsers // multiple users
+    case fetchUserPosts(id: Int) // posts of a sinlge user
+    case fetchPostComments(postId: Int) // comments for a sinlge post
+    case fetchPost(postId: Int) // a single post
 }
 
 extension APIRequest {
@@ -32,6 +33,8 @@ extension APIRequest {
             return "/users/\(id)/posts"
         case let .fetchPostComments(postId):
             return "/posts/\(postId)/comments"
+        case let .fetchPost(postId):
+            return "/posts/\(postId)"
         }
     }
 
@@ -68,7 +71,7 @@ extension APIRequest {
 
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
-        // -todo: headerㄸㅏ로 빼기
+        // -TODO: headerㄸㅏ로 빼기
         request.addValue("application/json", forHTTPHeaderField: "Accept")
 
         return request

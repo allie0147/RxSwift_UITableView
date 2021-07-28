@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
 
     let viewModel: HomeViewModel
 
-    let disposeBag: DisposeBag = DisposeBag()
+    var disposeBag: DisposeBag = DisposeBag()
 
     required init?(coder: NSCoder) {
         viewModel = HomeViewModel() // inject ViewModel
@@ -51,7 +51,7 @@ class HomeViewController: UIViewController {
             // deselect row
             self?.userTableView.deselectRow(at: index, animated: true)
             // push VC
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard.getSB(name: .main)
             let vc = storyboard.instantiateViewController(withIdentifier: UserPostsViewController.identifier) as! UserPostsViewController
             vc.viewModel = UserPostsViewModel(userId: item.id, userName: item.username)
             self?.navigationController?.pushViewController(vc, animated: true)

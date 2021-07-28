@@ -16,8 +16,8 @@ class HomeViewTableViewCell: UITableViewCell {
     @IBOutlet weak var lbEmail: UILabel!
     @IBOutlet weak var lbWebsite: UILabel!
 
-    var viewModel: PublishRelay<HomeViewTableViewModel>
-    let cellDisposeBag = DisposeBag()
+    let viewModel: PublishRelay<HomeViewTableViewModel>
+    var cellDisposeBag = DisposeBag()
 
     required init?(coder: NSCoder) {
         viewModel = PublishRelay<HomeViewTableViewModel>()
@@ -26,6 +26,12 @@ class HomeViewTableViewCell: UITableViewCell {
 
         self.bind(with: viewModel)
     }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        cellDisposeBag = DisposeBag()
+    }
+
     /**
      - bind cellViewModel
      
