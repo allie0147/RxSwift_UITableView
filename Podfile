@@ -8,6 +8,6 @@ target 'RxMvvmTableView' do
   # Pods for RxMvvmTableView
   pod 'RxSwift'
   pod 'RxCocoa'
-  
+  pod 'RxViewController'
 
 end

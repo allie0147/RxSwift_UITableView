@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxViewController
 
 class PostCommentsViewController: UIViewController {
 
@@ -47,7 +48,7 @@ class PostCommentsViewController: UIViewController {
         button.layer.cornerRadius = 30
         return button
     }()
-    
+
     private lazy var tableHeaderView: PostCommentTableViewHeaderView = {
         return PostCommentTableViewHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 300))
     }()
@@ -58,17 +59,13 @@ class PostCommentsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        settingUI()
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        makeCommentButton.frame = CGRect(
-            x: view.frame.size.width - 60 - 15, // view.width - button width - little margin
-            y: view.frame.size.height - 60 - view.safeAreaInsets.bottom, // view.height - button height - safeArea.bottom
-            width: 60,
-            height: 60
+        self.rx.viewDidLayoutSubviews
+            .subscribe(onNext: { [weak self] in
+            self?.setFABFrame()
+        }
         )
+            .disposed(by: disposeBag)
+        settingUI()
     }
 
     func settingUI() {
@@ -78,7 +75,8 @@ class PostCommentsViewController: UIViewController {
 
         view.addSubview(makeCommentButton)
         // cell
-        postCommentTableView.register(UINib(nibName: PostCommentTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: PostCommentTableViewCell.identifier)
+        postCommentTableView.register(UINib(nibName: PostCommentTableViewCell.identifier, bundle: nil),
+                                      forCellReuseIdentifier: PostCommentTableViewCell.identifier)
         // header view
         postCommentTableView.tableHeaderView = self.tableHeaderView
 
@@ -107,4 +105,14 @@ class PostCommentsViewController: UIViewController {
         })
             .disposed(by: disposeBag)
     }
+    
+    private func setFABFrame() {
+        makeCommentButton.frame = CGRect(
+            x: view.frame.size.width - 60 - 15, // view.width - button width - little margin
+            y: view.frame.size.height - 60 - view.safeAreaInsets.bottom, // view.height - button height - safeArea.bottom
+            width: 60,
+            height: 60
+        )
+    }
+
 }
