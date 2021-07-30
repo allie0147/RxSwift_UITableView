@@ -8,16 +8,22 @@
 import UIKit
 
 class PostCommentTableViewHeaderView: UIView {
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbBody: UILabel!
 
-    var userPost: PublishRelay<UserPost>
+    @IBOutlet weak var containerHeight: NSLayoutConstraint!
+    @IBOutlet weak var conatainerBottom: NSLayoutConstraint!
 
+    var userPost: BehaviorRelay<UserPost>
+    var headerHeight: PublishRelay<CGFloat>
     var disposeBag = DisposeBag()
 
     override init(frame: CGRect) {
-        userPost = PublishRelay<UserPost>()
+        userPost = BehaviorRelay<UserPost>(value: UserPost(userId: 0, id: 0, title: "", body: ""))
+        headerHeight = PublishRelay<CGFloat>()
         super.init(frame: frame)
+
         commonInit()
         bind(with: userPost)
     }
@@ -26,14 +32,23 @@ class PostCommentTableViewHeaderView: UIView {
         let view = Bundle.main.loadNibNamed(String(describing: PostCommentTableViewHeaderView.self), owner: self, options: nil)?.first as! PostCommentTableViewHeaderView
         view.frame = self.bounds
         self.addSubview(view)
+
+        headerHeight.asDriver(onErrorJustReturn: 0)
+            .debug()
+            .drive(onNext: { [weak self] height in
+            self?.containerHeight.constant = height
+        })
+            .disposed(by: disposeBag)
+
     }
 
     required init?(coder: NSCoder) {
-        userPost = PublishRelay<UserPost>()
+        userPost = BehaviorRelay<UserPost>(value: UserPost(userId: 0, id: 0, title: "", body: ""))
+        headerHeight = PublishRelay<CGFloat>()
         super.init(coder: coder)
     }
 
-    private func bind(with data: PublishRelay<UserPost>) {
+    private func bind(with data: BehaviorRelay<UserPost>) {
         data.asDriver(onErrorJustReturn: UserPost(userId: 0, id: 0, title: "", body: ""))
             .debug()
             .drive(onNext: { [weak self] value in

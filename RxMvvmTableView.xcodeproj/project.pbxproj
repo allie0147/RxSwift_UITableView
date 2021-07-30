@@ -24,6 +24,7 @@
 		B5A5774A26B1268300F5E312 /* PostCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5A5774826B1268300F5E312 /* PostCommentTableViewCell.xib */; };
 		B5A5774C26B1330C00F5E312 /* PostCommentTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A5774B26B1330C00F5E312 /* PostCommentTableViewHeaderView.swift */; };
 		B5A5774E26B1331F00F5E312 /* PostCommentTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5A5774D26B1331F00F5E312 /* PostCommentTableViewHeaderView.xib */; };
+		B5BCC58726B37D8D009F4E22 /* PostCommentTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BCC58626B37D8D009F4E22 /* PostCommentTableViewHeader.swift */; };
 		B5D12EC326A41F4200A1C9D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D12EC226A41F4200A1C9D6 /* AppDelegate.swift */; };
 		B5D12EC726A41F4200A1C9D6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D12EC626A41F4200A1C9D6 /* HomeViewController.swift */; };
 		B5D12ECA26A41F4200A1C9D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5D12EC826A41F4200A1C9D6 /* Main.storyboard */; };
@@ -60,6 +61,7 @@
 		B5A5774826B1268300F5E312 /* PostCommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCommentTableViewCell.xib; sourceTree = "<group>"; };
 		B5A5774B26B1330C00F5E312 /* PostCommentTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentTableViewHeaderView.swift; sourceTree = "<group>"; };
 		B5A5774D26B1331F00F5E312 /* PostCommentTableViewHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCommentTableViewHeaderView.xib; sourceTree = "<group>"; };
+		B5BCC58626B37D8D009F4E22 /* PostCommentTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentTableViewHeader.swift; sourceTree = "<group>"; };
 		B5D12EBF26A41F4200A1C9D6 /* RxMvvmTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxMvvmTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D12EC226A41F4200A1C9D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5D12EC626A41F4200A1C9D6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				B5A5774826B1268300F5E312 /* PostCommentTableViewCell.xib */,
 				B5A5774B26B1330C00F5E312 /* PostCommentTableViewHeaderView.swift */,
 				B5A5774D26B1331F00F5E312 /* PostCommentTableViewHeaderView.xib */,
+				B5BCC58626B37D8D009F4E22 /* PostCommentTableViewHeader.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5BCC58726B37D8D009F4E22 /* PostCommentTableViewHeader.swift in Sources */,
 				B525856126AFF4CA00A0ADB1 /* CommentViewController.swift in Sources */,
 				B5D12EF026A459FF00A1C9D6 /* APIServiceProtocol.swift in Sources */,
 				B503468426AD7D2900D4CE88 /* UserPostsViewTableViewCell.swift in Sources */,

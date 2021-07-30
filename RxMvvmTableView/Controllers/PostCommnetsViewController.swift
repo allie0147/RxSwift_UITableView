@@ -14,7 +14,8 @@ class PostCommentsViewController: UIViewController {
 
     // MARK: -UI
     @IBOutlet weak var postCommentTableView: UITableView!
-    private var makeCommentButton: UIButton = { // floating
+    // Floating Action Button
+    private lazy var makeCommentButton: UIButton = {
         let button = UIButton(
             frame: CGRect(
                 x: 0,
@@ -48,10 +49,11 @@ class PostCommentsViewController: UIViewController {
         button.layer.cornerRadius = 30
         return button
     }()
+//    private lazy var tableHeaderView: PostCommentTableViewHeaderView = {
+//        return PostCommentTableViewHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 300))
+//    }()
 
-    private lazy var tableHeaderView: PostCommentTableViewHeaderView = {
-        return PostCommentTableViewHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 300))
-    }()
+    var kTableHeaderHeight: CGFloat = 300.0
 
     // MARK: -Rx
     var viewModel: PostCommentsViewModel! = nil
@@ -59,13 +61,12 @@ class PostCommentsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.rx.viewDidLayoutSubviews
-            .subscribe(onNext: { [weak self] in
-            self?.setFABFrame()
-        }
-        )
-            .disposed(by: disposeBag)
+
         settingUI()
+
+        let header = PostCommentTableViewHeader(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 300))
+        header.imageView.image = UIImage(named: "background")
+        postCommentTableView.tableHeaderView = header
     }
 
     func settingUI() {
@@ -73,12 +74,17 @@ class PostCommentsViewController: UIViewController {
         self.navigationItem.largeTitleDisplayMode = .never
         self.navigationItem.title = viewModel.title
 
+        // add FAB
         view.addSubview(makeCommentButton)
+
         // cell
         postCommentTableView.register(UINib(nibName: PostCommentTableViewCell.identifier, bundle: nil),
                                       forCellReuseIdentifier: PostCommentTableViewCell.identifier)
+
+
         // header view
-        postCommentTableView.tableHeaderView = self.tableHeaderView
+//        postCommentTableView.estimatedRowHeight = UITableView.automaticDimension
+//        postCommentTableView.tableHeaderView = self.tableHeaderView
 
         // FAB
         makeCommentButton.rx.tap
@@ -89,6 +95,11 @@ class PostCommentsViewController: UIViewController {
             self?.present(vc, animated: true)
         })
             .disposed(by: disposeBag)
+
+        self.rx.viewDidLayoutSubviews
+            .subscribe(onNext: { [weak self] in
+            self?.setFABFrame()
+        }).disposed(by: disposeBag)
 
         // commetns in tableView
         viewModel.comments.asDriver(onErrorJustReturn: [])
@@ -101,11 +112,28 @@ class PostCommentsViewController: UIViewController {
 
         viewModel.post.asDriver(onErrorJustReturn: UserPost(userId: 0, id: 0, title: "", body: ""))
             .drive(onNext: { [weak self] data in
-            self?.tableHeaderView.userPost.accept(data)
+//            self?.tableHeaderView.userPost.accept(data)
+        })
+            .disposed(by: disposeBag)
+
+        postCommentTableView.rx.didScroll.asDriver(
+        ).drive(onNext: { [weak self] in
+            guard let header = self?.postCommentTableView.tableHeaderView as? PostCommentTableViewHeader else { return }
+            header.scrollViewDidScroll(scrollView: (self?.postCommentTableView)!)
+//            self?.updateHeaderView()
         })
             .disposed(by: disposeBag)
     }
-    
+
+//    func updateHeaderView() {
+//        var headerRect = CGRect(x: 0, y: -kTableHeaderHeight, width: postCommentTableView.bounds.width, height: kTableHeaderHeight)
+//        if postCommentTableView.contentOffset.y < -kTableHeaderHeight {
+//            headerRect.origin.y = postCommentTableView.contentOffset.y
+//            headerRect.size.height = -postCommentTableView.contentOffset.y
+//        }
+//        tableHeaderView.frame = headerRect
+//    }
+
     private func setFABFrame() {
         makeCommentButton.frame = CGRect(
             x: view.frame.size.width - 60 - 15, // view.width - button width - little margin
@@ -114,5 +142,4 @@ class PostCommentsViewController: UIViewController {
             height: 60
         )
     }
-
 }

@@ -10,45 +10,63 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostCommentTableViewHeaderView" customModule="RxMvvmTableView" customModuleProvider="target">
             <connections>
+                <outlet property="conatainerBottom" destination="0G2-Zq-rrF" id="0ct-E8-GjI"/>
+                <outlet property="containerHeight" destination="JZk-Jg-oCx" id="5wm-Jg-AoW"/>
+                <outlet property="containerView" destination="Ld1-hV-WPN" id="KMs-xb-6Jf"/>
                 <outlet property="lbBody" destination="DXX-XY-hPj" id="yDm-Qp-SFH"/>
                 <outlet property="lbTitle" destination="DiU-fX-wiO" id="eel-vD-fy3"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" restorationIdentifier="PostCommentTableViewHeaderView" id="iN0-l3-epB" customClass="PostCommentTableViewHeaderView" customModule="RxMvvmTableView" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="479"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="387"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="M2O-Fp-tHY">
-                    <rect key="frame" x="20" y="10" width="374" height="459"/>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ld1-hV-WPN">
+                    <rect key="frame" x="20" y="77" width="374" height="300"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DiU-fX-wiO">
-                            <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXX-XY-hPj">
-                            <rect key="frame" x="0.0" y="30.5" width="374" height="428.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="M2O-Fp-tHY">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="300"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DiU-fX-wiO">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXX-XY-hPj">
+                                    <rect key="frame" x="0.0" y="30.5" width="374" height="269.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
                     </subviews>
-                </stackView>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="M2O-Fp-tHY" firstAttribute="leading" secondItem="Ld1-hV-WPN" secondAttribute="leading" id="F3f-Tw-Vlp"/>
+                        <constraint firstAttribute="height" constant="300" id="JZk-Jg-oCx"/>
+                        <constraint firstAttribute="bottom" secondItem="M2O-Fp-tHY" secondAttribute="bottom" id="fEC-vs-Odp"/>
+                        <constraint firstAttribute="trailing" secondItem="M2O-Fp-tHY" secondAttribute="trailing" id="row-ML-pM4"/>
+                        <constraint firstItem="M2O-Fp-tHY" firstAttribute="top" secondItem="Ld1-hV-WPN" secondAttribute="top" id="wwB-Zo-2x6"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemGray5Color"/>
             <constraints>
-                <constraint firstItem="M2O-Fp-tHY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="RtJ-JD-73O"/>
-                <constraint firstAttribute="bottom" secondItem="M2O-Fp-tHY" secondAttribute="bottom" constant="10" id="cLe-Mm-QWP"/>
-                <constraint firstAttribute="trailing" secondItem="M2O-Fp-tHY" secondAttribute="trailing" constant="20" id="n1e-ca-yHk"/>
-                <constraint firstItem="M2O-Fp-tHY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="owI-fU-IKJ"/>
+                <constraint firstAttribute="bottom" secondItem="Ld1-hV-WPN" secondAttribute="bottom" constant="10" id="0G2-Zq-rrF"/>
+                <constraint firstItem="Ld1-hV-WPN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="6So-Fo-GVO"/>
+                <constraint firstAttribute="trailing" secondItem="Ld1-hV-WPN" secondAttribute="trailing" constant="20" id="Vus-co-KyP"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="298.55072463768118" y="245.42410714285714"/>
+            <point key="canvasLocation" x="298.55072463768118" y="214.62053571428569"/>
         </view>
     </objects>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
