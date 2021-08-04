@@ -18,7 +18,7 @@
 		B525856126AFF4CA00A0ADB1 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B525856026AFF4CA00A0ADB1 /* CommentViewController.swift */; };
 		B530187F26AEA5630006B00C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B530187E26AEA5630006B00C /* Comment.swift */; };
 		B530188226AEA6A00006B00C /* PostCommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B530188126AEA6A00006B00C /* PostCommentsViewModel.swift */; };
-		B530188426AEA7720006B00C /* PostCommnetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B530188326AEA7720006B00C /* PostCommnetsViewController.swift */; };
+		B530188426AEA7720006B00C /* PostCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B530188326AEA7720006B00C /* PostCommentsViewController.swift */; };
 		B5A5774626B11F7600F5E312 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A5774526B11F7600F5E312 /* Constants.swift */; };
 		B5A5774926B1268300F5E312 /* PostCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A5774726B1268300F5E312 /* PostCommentTableViewCell.swift */; };
 		B5A5774A26B1268300F5E312 /* PostCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5A5774826B1268300F5E312 /* PostCommentTableViewCell.xib */; };
@@ -55,7 +55,7 @@
 		B525856026AFF4CA00A0ADB1 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		B530187E26AEA5630006B00C /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		B530188126AEA6A00006B00C /* PostCommentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentsViewModel.swift; sourceTree = "<group>"; };
-		B530188326AEA7720006B00C /* PostCommnetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommnetsViewController.swift; sourceTree = "<group>"; };
+		B530188326AEA7720006B00C /* PostCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentsViewController.swift; sourceTree = "<group>"; };
 		B5A5774526B11F7600F5E312 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B5A5774726B1268300F5E312 /* PostCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentTableViewCell.swift; sourceTree = "<group>"; };
 		B5A5774826B1268300F5E312 /* PostCommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCommentTableViewCell.xib; sourceTree = "<group>"; };
@@ -210,7 +210,7 @@
 			children = (
 				B5D12EC626A41F4200A1C9D6 /* HomeViewController.swift */,
 				B503467E26AD7ACA00D4CE88 /* UserPostsViewController.swift */,
-				B530188326AEA7720006B00C /* PostCommnetsViewController.swift */,
+				B530188326AEA7720006B00C /* PostCommentsViewController.swift */,
 				B525856026AFF4CA00A0ADB1 /* CommentViewController.swift */,
 			);
 			path = Controllers;
@@ -395,7 +395,7 @@
 				B5D12EE226A4259200A1C9D6 /* HomeViewModel.swift in Sources */,
 				B5D12EF226A4714700A1C9D6 /* APIRequest.swift in Sources */,
 				B5D12EEC26A4598A00A1C9D6 /* RequestObservable.swift in Sources */,
-				B530188426AEA7720006B00C /* PostCommnetsViewController.swift in Sources */,
+				B530188426AEA7720006B00C /* PostCommentsViewController.swift in Sources */,
 				B503467F26AD7ACA00D4CE88 /* UserPostsViewController.swift in Sources */,
 				B530188226AEA6A00006B00C /* PostCommentsViewModel.swift in Sources */,
 				B530187F26AEA5630006B00C /* Comment.swift in Sources */,
