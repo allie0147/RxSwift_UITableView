@@ -8,13 +8,18 @@
 import UIKit
 
 class PostCommentTableViewHeaderView: UIView {
+    
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbBody: UILabel!
 
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
-    @IBOutlet weak var conatainerBottom: NSLayoutConstraint!
-
+    
+    private var imageViewHeight = NSLayoutConstraint()
+    private var imageViewBottom = NSLayoutConstraint()
+    
     var userPost: BehaviorRelay<UserPost>
     var headerHeight: PublishRelay<CGFloat>
     var disposeBag = DisposeBag()
