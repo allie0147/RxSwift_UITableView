@@ -19,9 +19,9 @@ class PostCommentsViewModel {
         disposeBag = DisposeBag()
         comments = PublishRelay<[PostCommentsTableViewModel]>()
         post = PublishRelay<UserPost>()
-        
+
         self.title = "No. \(postId)"
-        
+
         fetchComments(postId)
         fetchPost(postId)
     }
