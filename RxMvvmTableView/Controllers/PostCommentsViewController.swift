@@ -49,9 +49,9 @@ class PostCommentsViewController: UIViewController {
         button.layer.cornerRadius = 30
         return button
     }()
-//    private lazy var tableHeaderView: PostCommentTableViewHeaderView = {
-//        return PostCommentTableViewHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 300))
-//    }()
+    private lazy var tableHeaderView: PostCommentTableViewHeaderView = {
+        return PostCommentTableViewHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 300))
+    }()
 
     var kTableHeaderHeight: CGFloat = 300.0
 
@@ -61,12 +61,9 @@ class PostCommentsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         settingUI()
-
-        let header = PostCommentTableViewHeader(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 300))
-        header.imageView.image = UIImage(named: "background")
-        postCommentTableView.tableHeaderView = header
+        tableHeaderView.backgroundImageView.image = UIImage(named: "background")
+        postCommentTableView.tableHeaderView = tableHeaderView
     }
 
     func settingUI() {
@@ -80,12 +77,6 @@ class PostCommentsViewController: UIViewController {
         // cell
         postCommentTableView.register(UINib(nibName: PostCommentTableViewCell.identifier, bundle: nil),
                                       forCellReuseIdentifier: PostCommentTableViewCell.identifier)
-
-
-        // header view
-//        postCommentTableView.estimatedRowHeight = UITableView.automaticDimension
-//        postCommentTableView.tableHeaderView = self.tableHeaderView
-
         // FAB
         makeCommentButton.rx.tap
             .bind(onNext: { [weak self] in
@@ -112,27 +103,17 @@ class PostCommentsViewController: UIViewController {
 
         viewModel.post.asDriver(onErrorJustReturn: UserPost(userId: 0, id: 0, title: "", body: ""))
             .drive(onNext: { [weak self] data in
-//            self?.tableHeaderView.userPost.accept(data)
+            self?.tableHeaderView.userPost.accept(data)
         })
             .disposed(by: disposeBag)
 
         postCommentTableView.rx.didScroll.asDriver(
         ).drive(onNext: { [weak self] in
-            guard let header = self?.postCommentTableView.tableHeaderView as? PostCommentTableViewHeader else { return }
+            guard let header = self?.postCommentTableView.tableHeaderView as? PostCommentTableViewHeaderView else { return }
             header.scrollViewDidScroll(scrollView: (self?.postCommentTableView)!)
-//            self?.updateHeaderView()
         })
             .disposed(by: disposeBag)
     }
-
-//    func updateHeaderView() {
-//        var headerRect = CGRect(x: 0, y: -kTableHeaderHeight, width: postCommentTableView.bounds.width, height: kTableHeaderHeight)
-//        if postCommentTableView.contentOffset.y < -kTableHeaderHeight {
-//            headerRect.origin.y = postCommentTableView.contentOffset.y
-//            headerRect.size.height = -postCommentTableView.contentOffset.y
-//        }
-//        tableHeaderView.frame = headerRect
-//    }
 
     private func setFABFrame() {
         makeCommentButton.frame = CGRect(

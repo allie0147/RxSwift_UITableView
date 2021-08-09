@@ -8,18 +8,18 @@
 import UIKit
 
 class PostCommentTableViewHeaderView: UIView {
-    
+
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var backgroundImageView: UIImageView!
-    
+
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbBody: UILabel!
 
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
-    
-    private var imageViewHeight = NSLayoutConstraint()
-    private var imageViewBottom = NSLayoutConstraint()
-    
+
+    @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var imageViewBottom: NSLayoutConstraint!
+
     var userPost: BehaviorRelay<UserPost>
     var headerHeight: PublishRelay<CGFloat>
     var disposeBag = DisposeBag()
@@ -37,14 +37,6 @@ class PostCommentTableViewHeaderView: UIView {
         let view = Bundle.main.loadNibNamed(String(describing: PostCommentTableViewHeaderView.self), owner: self, options: nil)?.first as! PostCommentTableViewHeaderView
         view.frame = self.bounds
         self.addSubview(view)
-
-        headerHeight.asDriver(onErrorJustReturn: 0)
-            .debug()
-            .drive(onNext: { [weak self] height in
-            self?.containerHeight.constant = height
-        })
-            .disposed(by: disposeBag)
-
     }
 
     required init?(coder: NSCoder) {
@@ -60,6 +52,14 @@ class PostCommentTableViewHeaderView: UIView {
             self?.lbTitle.text = value.title
             self?.lbBody.text = value.body
         }).disposed(by: disposeBag)
+    }
+
+    /// notify view of scroll change from container
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        containerHeight.constant = scrollView.contentInset.top
+        let offsetY = -(scrollView.contentOffset.y + scrollView.contentInset.top)
+        containerView.clipsToBounds = offsetY <= 0
+        imageViewHeight.constant = max(offsetY + scrollView.contentInset.top, scrollView.contentInset.top)
     }
 }
 
