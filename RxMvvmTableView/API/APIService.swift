@@ -27,6 +27,10 @@ final class APIService: APIServiceProtocol {
         requestObservable.call(req: .fetchPost(postId: postId))
     }
 
+    func postComment(comment: RequestComment) -> Observable<RequestComment> {
+        requestObservable.call(req: .postComment(comment: comment))
+    }
+
 //    func getRecipes() throws -> Observable<[PostModel]> {
 //        var request = URLRequest(url:
 //            URL(string: "https://jsonplaceholder.typicode.com/posts")!)

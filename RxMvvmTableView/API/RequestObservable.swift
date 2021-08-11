@@ -14,8 +14,8 @@ public class RequestObservable {
             return URLSession.shared.rx.data(request: request)
                 .retry(3)
                 .subscribe(on: ConcurrentDispatchQueueScheduler.init(qos: .default))
-                .map {
-                try JSONDecoder().decode(T.self, from: $0)
+                .map { [weak self] in
+                try self?.jsonDecoder.decode(T.self, from: $0) as! T
             }
                 .observe(on: MainScheduler.asyncInstance)
         }

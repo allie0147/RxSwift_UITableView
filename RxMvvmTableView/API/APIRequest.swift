@@ -15,6 +15,7 @@ enum APIRequest {
     case fetchUserPosts(id: Int) // posts of a sinlge user
     case fetchPostComments(postId: Int) // comments for a sinlge post
     case fetchPost(postId: Int) // a single post
+    case postComment(comment: RequestComment) // POST a single comment
 }
 
 extension APIRequest {
@@ -35,22 +36,34 @@ extension APIRequest {
             return "/posts/\(postId)/comments"
         case let .fetchPost(postId):
             return "/posts/\(postId)"
+        case .postComment:
+            return "/comments"
         }
     }
 
     var method: RequestType {
         switch self {
+        case .postComment:
+            return .POST
         default:
             return .GET
         }
     }
 
     var headers: [String: String]? {
-        return ["Content-type": "application/json"]
+        return ["Content-type": "application/json", "charset": "UTF-8"]
     }
 
     var params: [String: String]? {
         return [:]
+    }
+
+    var body: Data? {
+        switch self {
+        case let .postComment(comment):
+            return try? JSONEncoder().encode(comment)
+        default: return nil
+        }
     }
 
     public func request(with requestType: Self) -> URLRequest {
@@ -71,6 +84,11 @@ extension APIRequest {
 
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
+
+        if requestType.body != nil {
+            request.httpBody = requestType.body
+        }
+
         // -TODO: headerㄸㅏ로 빼기
         request.addValue("application/json", forHTTPHeaderField: "Accept")
 

@@ -22,6 +22,7 @@
 		B544EF3826C39C8F008B3D32 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544EF3726C39C8F008B3D32 /* Logger.swift */; };
 		B544EF3C26C3C3CD008B3D32 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544EF3B26C3C3CD008B3D32 /* Extensions.swift */; };
 		B544EF4026C3C627008B3D32 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B544EF4226C3C627008B3D32 /* Localizable.strings */; };
+		B544EF4926C3D7F8008B3D32 /* RequestComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544EF4826C3D7F8008B3D32 /* RequestComment.swift */; };
 		B5A5774626B11F7600F5E312 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A5774526B11F7600F5E312 /* Constants.swift */; };
 		B5A5774926B1268300F5E312 /* PostCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A5774726B1268300F5E312 /* PostCommentTableViewCell.swift */; };
 		B5A5774A26B1268300F5E312 /* PostCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5A5774826B1268300F5E312 /* PostCommentTableViewCell.xib */; };
@@ -66,6 +67,7 @@
 		B544EF4326C3C64F008B3D32 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		B544EF4426C3C64F008B3D32 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B544EF4526C3C64F008B3D32 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B544EF4826C3D7F8008B3D32 /* RequestComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestComment.swift; sourceTree = "<group>"; };
 		B5A5774526B11F7600F5E312 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B5A5774726B1268300F5E312 /* PostCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentTableViewCell.swift; sourceTree = "<group>"; };
 		B5A5774826B1268300F5E312 /* PostCommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCommentTableViewCell.xib; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				B5D12EE726A4296D00A1C9D6 /* User.swift */,
 				B503468026AD7CAA00D4CE88 /* UserPost.swift */,
 				B530187E26AEA5630006B00C /* Comment.swift */,
+				B544EF4826C3D7F8008B3D32 /* RequestComment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				B503468426AD7D2900D4CE88 /* UserPostsViewTableViewCell.swift in Sources */,
 				B503468A26AD7F3B00D4CE88 /* UserPostsViewTableViewModel.swift in Sources */,
 				B5D12EC726A41F4200A1C9D6 /* HomeViewController.swift in Sources */,
+				B544EF4926C3D7F8008B3D32 /* RequestComment.swift in Sources */,
 				B503468126AD7CAA00D4CE88 /* UserPost.swift in Sources */,
 				B5D12EE626A4263500A1C9D6 /* HomeViewTableViewModel.swift in Sources */,
 				B525855F26AFD0D400A0ADB1 /* PostCommentsTableViewModel.swift in Sources */,
