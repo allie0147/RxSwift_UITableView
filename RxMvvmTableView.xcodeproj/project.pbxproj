@@ -19,6 +19,7 @@
 		B530187F26AEA5630006B00C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B530187E26AEA5630006B00C /* Comment.swift */; };
 		B530188226AEA6A00006B00C /* PostCommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B530188126AEA6A00006B00C /* PostCommentsViewModel.swift */; };
 		B530188426AEA7720006B00C /* PostCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B530188326AEA7720006B00C /* PostCommentsViewController.swift */; };
+		B544EF3826C39C8F008B3D32 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544EF3726C39C8F008B3D32 /* Logger.swift */; };
 		B5A5774626B11F7600F5E312 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A5774526B11F7600F5E312 /* Constants.swift */; };
 		B5A5774926B1268300F5E312 /* PostCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A5774726B1268300F5E312 /* PostCommentTableViewCell.swift */; };
 		B5A5774A26B1268300F5E312 /* PostCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5A5774826B1268300F5E312 /* PostCommentTableViewCell.xib */; };
@@ -56,6 +57,8 @@
 		B530187E26AEA5630006B00C /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		B530188126AEA6A00006B00C /* PostCommentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentsViewModel.swift; sourceTree = "<group>"; };
 		B530188326AEA7720006B00C /* PostCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentsViewController.swift; sourceTree = "<group>"; };
+		B544EF3726C39C8F008B3D32 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		B544EF3926C3B174008B3D32 /* OSLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSLog.framework; path = System/Library/Frameworks/OSLog.framework; sourceTree = SDKROOT; };
 		B5A5774526B11F7600F5E312 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B5A5774726B1268300F5E312 /* PostCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentTableViewCell.swift; sourceTree = "<group>"; };
 		B5A5774826B1268300F5E312 /* PostCommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCommentTableViewCell.xib; sourceTree = "<group>"; };
@@ -96,6 +99,7 @@
 		0335D687586B4DF1DFD4D38C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B544EF3926C3B174008B3D32 /* OSLog.framework */,
 				4D7326582BC7C69A3C26A28E /* Pods_RxMvvmTableView.framework */,
 			);
 			name = Frameworks;
@@ -231,6 +235,7 @@
 			children = (
 				B5D12EC226A41F4200A1C9D6 /* AppDelegate.swift */,
 				B5D12ECB26A41F4300A1C9D6 /* Assets.xcassets */,
+				B544EF3726C39C8F008B3D32 /* Logger.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -395,6 +400,7 @@
 				B5D12EE226A4259200A1C9D6 /* HomeViewModel.swift in Sources */,
 				B5D12EF226A4714700A1C9D6 /* APIRequest.swift in Sources */,
 				B5D12EEC26A4598A00A1C9D6 /* RequestObservable.swift in Sources */,
+				B544EF3826C39C8F008B3D32 /* Logger.swift in Sources */,
 				B530188426AEA7720006B00C /* PostCommentsViewController.swift in Sources */,
 				B503467F26AD7ACA00D4CE88 /* UserPostsViewController.swift in Sources */,
 				B530188226AEA6A00006B00C /* PostCommentsViewModel.swift in Sources */,
@@ -475,7 +481,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -530,7 +536,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -550,7 +556,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7PAS3H96L5;
 				INFOPLIST_FILE = RxMvvmTableView/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -574,7 +580,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7PAS3H96L5;
 				INFOPLIST_FILE = RxMvvmTableView/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
