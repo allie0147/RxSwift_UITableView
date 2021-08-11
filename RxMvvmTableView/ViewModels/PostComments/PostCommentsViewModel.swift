@@ -20,7 +20,7 @@ class PostCommentsViewModel {
         comments = PublishRelay<[PostCommentsTableViewModel]>()
         post = PublishRelay<UserPost>()
 
-        self.title = "No. \(postId)"
+        self.title = "Number".localized(with: String(postId))
 
         fetchComments(postId)
         fetchPost(postId)

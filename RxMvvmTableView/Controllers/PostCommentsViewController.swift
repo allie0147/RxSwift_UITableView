@@ -66,6 +66,7 @@ class PostCommentsViewController: UIViewController {
         // navigation item
         self.navigationItem.largeTitleDisplayMode = .never
         self.navigationItem.title = viewModel.title
+        self.navigationController?.navigationBar.topItem?.title = "Back".localized
         initFAB()
         initTableView()
     }

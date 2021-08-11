@@ -42,7 +42,7 @@ class UserPostsViewTableViewCell: UITableViewCell {
     private func bind(with data: PublishRelay<UserPostsViewTableViewModel>) {
         data.asDriver(onErrorJustReturn: UserPostsViewTableViewModel())
             .drive(onNext: { [weak self] value in
-            self?.lbNumber.text = "No.\(value.id)"
+            self?.lbNumber.text = "Number".localized(with: value.id)
             let attrString = NSAttributedString(string: value.title,
                                                 attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .bold)])
             self?.lbTitle.attributedText = attrString

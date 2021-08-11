@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Home"
+        self.navigationItem.title = "Home".localized
         // cell register
         userTableView.register(UINib(nibName: HomeViewTableViewCell.identifier, bundle: nil),
                                forCellReuseIdentifier: HomeViewTableViewCell.identifier)
