@@ -15,7 +15,7 @@ enum APIRequest {
     case fetchUserPosts(id: Int) // posts of a sinlge user
     case fetchPostComments(postId: Int) // comments for a sinlge post
     case fetchPost(postId: Int) // a single post
-    case postComment(comment: RequestComment) // POST a single comment
+    case postComment(comment: Comment) // POST a single comment
 }
 
 extension APIRequest {
@@ -89,8 +89,7 @@ extension APIRequest {
             request.httpBody = requestType.body
         }
 
-        // -TODO: headerㄸㅏ로 빼기
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.allHTTPHeaderFields = requestType.headers
 
         return request
     }
